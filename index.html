@@ -210,6 +210,22 @@
   opacity: 1;
   transition: opacity .6s ease-in-out .24s;
 }
+.btn-neon-outline {
+  display:inline-flex; align-items:center; gap:.55rem; padding:.95rem 1.15rem;
+  border-radius:12px; font-weight:800;
+  color:var(--accent); /* chữ neon */
+  background:transparent;
+  border:1px solid var(--accent);
+  text-shadow:0 0 8px rgba(0,255,163,.6); /* glow chữ */
+  box-shadow:0 0 12px rgba(0,255,163,.25); /* glow nhẹ cho outline */
+  transition:transform .18s ease, box-shadow .18s ease, color .18s ease;
+}
+.btn-neon-outline:hover {
+  transform:translateY(-2px);
+  color:#fff; /* hover chữ trắng */
+  text-shadow:0 0 12px rgba(0,255,163,.8);
+  box-shadow:0 0 18px rgba(0,255,163,.45);
+}
 
   </style>
 </head>
@@ -240,97 +256,99 @@
         <i class="fa-solid fa-bars text-xl"></i>
       </button>
     </div>
-    <div id="nav-menu" class="md:hidden hidden px-6 pb-4">
-      <nav class="rounded-xl p-3 flex flex-col mobile-nav">
-        <a href="#hero" class="px-4 py-3 rounded-lg hover:bg-white/10">Home</a>
-        <a href="#about" class="px-4 py-3 rounded-lg hover:bg-white/10">About</a>
-        <a href="#projects" class="px-4 py-3 rounded-lg hover:bg-white/10">Projects</a>
-        <a href="#skills" class="px-4 py-3 rounded-lg hover:bg-white/10">Skills</a>
-        <a href="#contact" class="px-4 py-3 rounded-lg hover:bg-white/10">Contact</a>
+    <!-- Mobile nav panel -->
+<div id="nav-menu" class="md:hidden hidden px-6 pb-4">
+  <nav class="rounded-xl p-3 flex flex-col mobile-nav">
+
+    <!-- Logo on top (mobile nav) -->
+<div class="mb-4 pb-3 border-b border-white/10 flex justify-center">
+  <h1 class="text-4xl font-semibold tracking-tight">
+    Đông
+    <span class="text-[#00ffa3] drop-shadow-[0_0_10px_rgba(0,255,163,0.8)]">.</span>
+  </h1>
+</div>
+<!-- Menu items centered -->
+    <a href="#hero" class="py-3 rounded-lg hover:bg-white/10 text-center">Home</a>
+    <a href="#about" class="py-3 rounded-lg hover:bg-white/10 text-center">About</a>
+    <a href="#projects" class="py-3 rounded-lg hover:bg-white/10 text-center">Projects</a>
+    <a href="#skills" class="py-3 rounded-lg hover:bg-white/10 text-center">Skills</a>
+    <a href="#contact" class="py-3 rounded-lg hover:bg-white/10 text-center">Contact</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section id="hero" class="min-h-screen bg-dark flex flex-col justify-center px-6 pt-28">
-    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center w-full">
-      <!-- Left -->
-      <div data-aos="fade-right">
-        <p class="uppercase tracking-widest text-gray-400 text-sm">Software Developer</p>
-        <h1 class="mt-3 font-extrabold leading-tight" style="font-size:clamp(40px,8vw,68px)">
-          <span class="mono text-white">Hello I’m</span><br class="hidden sm:block">
-          <span class="neon">ĐÔNG DEV</span>
-        </h1>
+  <<!-- Hero -->
+<section id="hero" class="min-h-screen bg-dark flex flex-col justify-center px-6 pt-28">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center w-full">
 
-        <!-- typed line -->
-        <div class="mt-2 text-[var(--muted)] text-base sm:text-lg">
-          <span id="typed-text"></span>
-        </div>
-
-        <p class="mt-4 text-gray-300 text-base sm:text-lg max-w-xl">
-          I excel at crafting elegant digital experiences with performance and accessibility in mind.<br>
-          I am proficient across modern programming languages and technologies.
-        </p>
-
-        <a href="assets/cv.pdf" class="btn-neon mt-6">
-          <i class="fa-solid fa-download"></i> Download CV
-        </a>
-
-        <!-- Social -->
-        <div class="mt-6 grid grid-cols-4 gap-4 max-w-xs">
-          <a class="icon-btn" href="https://www.facebook.com/dong06.5.98.bg/" aria-label="GitHub"><i class="fab fa-facebook text-xl"></i></a>
-          <a class="icon-btn" href="https://github.com/dong065vn" aria-label="GitHub"><i class="fab fa-github text-xl"></i></a>
-          <a class="icon-btn" href="#" aria-label="YouTube"><i class="fab fa-youtube text-xl"></i></a>
-          <a class="icon-btn" href="#" aria-label="Twitter"><i class="fab fa-x-twitter text-xl"></i></a>
-        </div>
-      </div>
-
-      <!-- Avatar + Rotating Neon Ring (pure HTML/CSS/JS) -->
-<div class="flex justify-center" data-aos="zoom-in">
-  <div class="relative w-[298px] h-[298px] xl:w-[498px] xl:h-[498px]">
-    <!-- SVG ring -->
-    <svg class="absolute inset-0 ring-spin" viewBox="0 0 506 506" aria-hidden="true">
-      <defs>
-        <!-- glow nhẹ -->
-        <filter id="ringGlow" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="1.6" result="blur"/>
-          <feMerge>
-            <feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-      </defs>
-      <circle
-        class="neon-ring"
-        cx="253" cy="253" r="250"
-        fill="none"
-        stroke="#00ff99"
-        stroke-width="4"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        filter="url(#ringGlow)"
-      />
-    </svg>
-
-    <!-- Avatar -->
-    <img
-      src="assets/avatar.jpg"
-      alt="Profile"
-      loading="lazy"
-      class="avatar-img absolute inset-4 w-[calc(100%-2rem)] h-[calc(100%-2rem)] rounded-full object-cover mix-blend-lighten opacity-0 shadow-[0_0_28px_rgba(0,255,163,.25)]"
-    />
-  </div>
-</div>
-
-    <!-- Stats -->
-    <div class="w-full mt-14" data-aos="fade-up">
-      <div class="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-6">
-        <div class="stat-card"><div class="stat-num">12</div><div class="stat-lbl">Years of Experience</div></div>
-        <div class="stat-card"><div class="stat-num">26</div><div class="stat-lbl">Projects Completed</div></div>
-        <div class="stat-card"><div class="stat-num">8</div><div class="stat-lbl">Technologies Mastered</div></div>
-        <div class="stat-card"><div class="stat-num">500</div><div class="stat-lbl">Code Commits</div></div>
+    <!-- Avatar FIRST on mobile, SECOND on desktop -->
+    <div class="order-1 md:order-2 flex justify-center" data-aos="zoom-in">
+      <div class="relative w-[298px] h-[298px] xl:w-[498px] xl:h-[498px]">
+        <!-- SVG ring -->
+        <svg class="absolute inset-0 ring-spin" viewBox="0 0 506 506" aria-hidden="true">
+          <defs>
+            <filter id="ringGlow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="1.6" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <circle class="neon-ring" cx="253" cy="253" r="250" fill="none" stroke="#00ff99"
+                  stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+                  filter="url(#ringGlow)"/>
+        </svg>
+        <!-- Avatar -->
+        <img src="assets/avatar.jpg" alt="Profile" loading="lazy"
+             class="avatar-img absolute inset-4 w-[calc(100%-2rem)] h-[calc(100%-2rem)]
+                    rounded-full object-cover mix-blend-lighten opacity-0
+                    shadow-[0_0_28px_rgba(0,255,163,.25)]" />
       </div>
     </div>
-  </section>
+
+    <!-- Text SECOND on mobile, FIRST on desktop -->
+    <div class="order-2 md:order-1 text-center md:text-left" data-aos="fade-right">
+      <p class="uppercase tracking-widest text-gray-400 text-sm">Software Developer</p>
+      <h1 class="mt-3 font-extrabold leading-tight" style="font-size:clamp(40px,8vw,68px)">
+        <span class="mono text-white">Hello I’m</span><br class="hidden sm:block">
+        <span class="neon">ĐÔNG DEV</span>
+      </h1>
+
+      <!-- typed line -->
+      <div class="mt-2 text-[var(--muted)] text-base sm:text-lg">
+        <span id="typed-text"></span>
+      </div>
+
+      <p class="mt-4 text-gray-300 text-base sm:text-lg max-w-xl md:max-w-none mx-auto md:mx-0">
+        I excel at crafting elegant digital experiences with performance and accessibility in mind.<br>
+        I am proficient across modern programming languages and technologies.
+      </p>
+
+      <a href="assets/cv.pdf" class="btn-neon-outline mt-6">
+  <i class="fa-solid fa-download"></i> Download CV
+</a>
+
+
+      <!-- Social ALWAYS under text -->
+      <div class="mt-6 grid grid-cols-4 gap-4 max-w-xs mx-auto md:mx-0">
+        <a class="icon-btn" href="https://www.facebook.com/dong06.5.98.bg/" aria-label="Facebook"><i class="fab fa-facebook text-xl"></i></a>
+        <a class="icon-btn" href="https://github.com/dong065vn" aria-label="GitHub"><i class="fab fa-github text-xl"></i></a>
+        <a class="icon-btn" href="#" aria-label="YouTube"><i class="fab fa-youtube text-xl"></i></a>
+        <a class="icon-btn" href="#" aria-label="Twitter / X"><i class="fab fa-x-twitter text-xl"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Stats -->
+  <div class="w-full mt-14" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-6">
+      <div class="stat-card"><div class="stat-num">12</div><div class="stat-lbl">Years of Experience</div></div>
+      <div class="stat-card"><div class="stat-num">26</div><div class="stat-lbl">Projects Completed</div></div>
+      <div class="stat-card"><div class="stat-num">8</div><div class="stat-lbl">Technologies Mastered</div></div>
+      <div class="stat-card"><div class="stat-num">500</div><div class="stat-lbl">Code Commits</div></div>
+    </div>
+  </div>
+</section>
+
 
   <!-- About -->
   <section id="about" class="section-wrap" data-aos="fade-up">
